@@ -67,7 +67,10 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    }
+    return colors.every((color) => ["red", "blue", "green"].includes(color));
 }
 
 /**
@@ -80,7 +83,6 @@ export function allRGB(colors: string[]): boolean {
 export function makeMath(addends: number[]): string {
     return "";
 }
-
 /**
  * Consumes an array of numbers and produces a new array of the same numbers,
  * with one difference. After the FIRST negative number, insert the sum of all
