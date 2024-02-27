@@ -1,6 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { makeBlankQuestion, renameQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -119,10 +119,12 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    questions.forEach((question) => {
-        question.published = true;
-    });
-    return questions;
+    const copiedQuestions: Question[] = questions.map((question: Question) => ({
+        ...question,
+        published: true
+    }));
+
+    return copiedQuestions;
 }
 
 /***
