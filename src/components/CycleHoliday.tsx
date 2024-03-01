@@ -14,36 +14,34 @@ export function CycleHoliday(): JSX.Element {
         Holiday.Valentines
     );
     const advanceByAlphabet = (current: Holiday): Holiday => {
-        switch (current) {
-            case Holiday.Christmas:
-                return Holiday.Easter;
-            case Holiday.Easter:
-                return Holiday.Halloween;
-            case Holiday.Halloween:
-                return Holiday.stPatricks;
-            case Holiday.stPatricks:
-                return Holiday.Valentines;
-            case Holiday.Valentines:
-                return Holiday.Christmas;
-            default:
-                return current;
+        if (current === Holiday.Christmas) {
+            return Holiday.Easter;
+        } else if (current === Holiday.Easter) {
+            return Holiday.Halloween;
+        } else if (current === Holiday.Halloween) {
+            return Holiday.stPatricks;
+        } else if (current === Holiday.stPatricks) {
+            return Holiday.Valentines;
+        } else if (current === Holiday.Valentines) {
+            return Holiday.Christmas;
+        } else {
+            return current;
         }
     };
 
     const advanceByYear = (current: Holiday): Holiday => {
-        switch (current) {
-            case Holiday.Valentines:
-                return Holiday.stPatricks;
-            case Holiday.stPatricks:
-                return Holiday.Easter;
-            case Holiday.Easter:
-                return Holiday.Halloween;
-            case Holiday.Halloween:
-                return Holiday.Christmas;
-            case Holiday.Christmas:
-                return Holiday.Valentines;
-            default:
-                return current;
+        if (current === Holiday.Valentines) {
+            return Holiday.stPatricks;
+        } else if (current === Holiday.stPatricks) {
+            return Holiday.Easter;
+        } else if (current === Holiday.Easter) {
+            return Holiday.Halloween;
+        } else if (current === Holiday.Halloween) {
+            return Holiday.Christmas;
+        } else if (current === Holiday.Christmas) {
+            return Holiday.Valentines;
+        } else {
+            return current;
         }
     };
 
